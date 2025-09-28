@@ -6,6 +6,7 @@ import editData from './editData';
 import deleteData from './deleteData';
 import settleDue from './settleDue';
 import getSettlements from './getSettlements';
+import botWebhookHandler from './botWebhookhandler';
 
 const app = new Hono();
 app.use(cors({ origin: "*" }));
@@ -15,6 +16,7 @@ app.get('/getData', getData)
 app.get('/getSettlements', getSettlements)
 
 app.post('/settleDue', settleDue)
+app.post('/webhook', botWebhookHandler)
 
 app.patch('/editData', editData)
 

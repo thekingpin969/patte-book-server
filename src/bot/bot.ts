@@ -5,8 +5,6 @@ import { randomBytes } from 'crypto'
 
 const tgBot = new Telegraf(process.env.BOT_TOKEN as string)
 
-tgBot.launch()
-
 tgBot.start(async (ctx) => {
     const msg = ctx.startPayload
     const { chat: { id } } = ctx.update.message
@@ -85,4 +83,13 @@ tgBot.on('text', async (ctx) => {
     }
 })
 
+
+if (process.env.NODE_ENV == 'production') {
+    const url = '' + '/webhook'
+    tgBot.telegram.setWebhook(url, {})
+} else {
+    tgBot.launch()
+}
 console.log('bot running')
+
+export default tgBot
