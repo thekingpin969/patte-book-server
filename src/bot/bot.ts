@@ -85,7 +85,7 @@ tgBot.on('text', async (ctx) => {
 
 
 if (process.env.NODE_ENV == 'production') {
-    const url = '' + '/webhook'
+    const url = 'https://patte-book-server.onrender.com' + '/webhook'
     tgBot.telegram.setWebhook(url, {})
 } else {
     tgBot.launch()
