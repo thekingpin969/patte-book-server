@@ -1,0 +1,14 @@
+import type { Context } from "hono";
+import { Redis } from "../../db/redis";
+
+async function getData(c: Context) {
+    try {
+        const { id: userid } = c.get('tgUserData')
+        const data = JSON.parse(await Redis.get(`data:${userid}`) || '[]')
+        return c.json(data, 200)
+    } catch (error) {
+        return c.text('something went wrong!', 500)
+    }
+}
+
+export default getData
