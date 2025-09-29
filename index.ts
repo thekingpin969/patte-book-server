@@ -1,6 +1,6 @@
 import { setUpRedis } from './src/db/redis'
 import { serve } from "bun"
-import routes from './src/routest/routes'
+import routes from './src/routes/routes'
 
 await setUpRedis()
 await import('./src/bot/bot')
