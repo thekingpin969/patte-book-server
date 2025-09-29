@@ -25,7 +25,7 @@ async function start(ctx: any) {
             return await ctx.reply('Hellow,\n\nwelcome to patte book bot 🥰', {
                 reply_markup: {
                     keyboard: [
-                        ['Get my Pattes', 'Pay Patte'],
+                        ['Get my Pattes'],
                     ],
                     resize_keyboard: true,
                     one_time_keyboard: false
