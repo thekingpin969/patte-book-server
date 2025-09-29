@@ -4,7 +4,7 @@ const mainBotToken = process.env.BOT_TOKEN as string
 
 function TelegramAuth() {
     return async (c: any, next: any) => {
-        const freeEndpoints = ['/webhook', '/adPostBack']
+        const freeEndpoints = ['/webhook']
         if (freeEndpoints.includes(c.req.path || '')) {
             return await next()
         }
