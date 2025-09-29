@@ -86,10 +86,11 @@ tgBot.on('text', async (ctx) => {
 
 if (process.env.NODE_ENV == 'production') {
     const url = 'https://patte-book-server.onrender.com' + '/webhook'
-    tgBot.telegram.setWebhook(url, {})
+    tgBot.telegram.setWebhook(url, { secret_token: 'authorized_request_from_pattebookbot' })
+    console.log('bot running throw webhook')
 } else {
     tgBot.launch()
+    console.log('bot running')
 }
-console.log('bot running')
 
 export default tgBot
