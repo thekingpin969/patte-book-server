@@ -7,6 +7,7 @@ import deleteData from './deleteData';
 import settleDue from './settleDue';
 import getSettlements from './getSettlements';
 import botWebhookHandler from './botWebhookhandler';
+import exportRedis from './export';
 
 const app = new Hono();
 app.use(cors({ origin: "*" }));
@@ -17,6 +18,7 @@ app.get('/getSettlements', getSettlements)
 
 app.post('/settleDue', settleDue)
 app.post('/webhook', botWebhookHandler)
+app.post('/export', exportRedis)
 
 app.patch('/editData', editData)
 
