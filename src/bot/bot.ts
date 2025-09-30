@@ -2,10 +2,12 @@ import { Telegraf } from 'telegraf'
 import start from './commands/start'
 import getMyPattes from './keyboards/getMyPattes'
 import onText from './actions/onText'
+import exportRedisDB from './commands/export'
 
 const tgBot = new Telegraf(process.env.BOT_TOKEN as string)
 
 tgBot.start(start)
+tgBot.command('export', exportRedisDB)
 tgBot.hears('Get my Pattes', getMyPattes)
 tgBot.on('text', onText)
 
